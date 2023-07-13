@@ -40,7 +40,7 @@ class TouchVelocity{
         touchOnThreshold, touchOffThreshold, 
         hoverOnThreshold, hoverOffThreshold;
     bool stateChanged;
-    elapsedMicros timer;
+    unsigned long timer;
 };
 
 #endif

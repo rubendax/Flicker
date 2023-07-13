@@ -22,7 +22,7 @@ int TouchVelocity::read(){
 
   if (state == 0){ // idle
     stateChanged = false;
-    timer = 0;
+    timer = micros();
     if (newValue >= hoverOnThreshold){
       state = 1;
     }
@@ -32,7 +32,7 @@ int TouchVelocity::read(){
     if (newValue >= touchOnThreshold){ // return velocity
       stateChanged = true;
       state = 2; // wait for release
-      return timer;
+      return micros() - timer;
     }
     else if (newValue <= hoverOffThreshold){ // return to idle
       state = 0;
