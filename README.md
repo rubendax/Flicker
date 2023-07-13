@@ -1,3 +1,11 @@
+
+
+### This is a fork of [Flicker](github.com/joshnishikawa/Flicker) modified to be compatible with standard Arduino development boards. 
+The original library is built for Teensy. 
+
+### NOTE: Capacitive touch functionality is currently missing! 
+```touchRead()``` was replaced with ```analogRead()```
+
 # Flicker 2.0.0
 ### A library for making capacitive touch easy to use.
 ###### by Josh Nishikawa <github.com/joshnishikawa/Flicker>
@@ -5,6 +13,7 @@
 Includes all the functions found in the Bounce library, smoothes eratic values to make variable input more useful and includes functions for measuring velocity.
 ___
 ### VERSION LOG:
+
 2.0.0
 - Thresholds for TouchSwitch are now set more dynamically and updated when
   highest/lowest readings are updated. This better accommodates more setups 
