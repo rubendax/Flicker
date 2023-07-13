@@ -54,7 +54,7 @@ class TouchSwitch{
     // Example: press and hold a button and have it repeat every X milliseconds
     void retrigger(unsigned long interval); 
 
-   	// A 'debounce' interval isn't really needed but, if you want one...
+  	// A 'debounce' interval isn't really needed but, if you want one...
     void interval(unsigned long interval_millis); 
 
     unsigned long previousDuration();
@@ -69,7 +69,7 @@ class TouchSwitch{
     void updateThreshold(int low, int high);
     bool state = false;
     bool userSetThreshold = false;
-    elapsedMillis held_millis = 0;
+    unsigned long held_millis = 0;
     unsigned long previous_millis = 0;
     unsigned long interval_millis = 0;
     unsigned long retrigger_millis = 0;

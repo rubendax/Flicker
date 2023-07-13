@@ -119,7 +119,7 @@ int TouchSwitch::trigger(){
 
   if(latched){ // LATCH behavior
     if (newValue >= onThreshold){
-      if (waiting && held_millis >= interval_millis){
+      if (waiting && (millis() - held_millis) >= interval_millis){
         state = !state;
         waiting = false;
         durationOfPreviousState = current_millis - previous_millis;
@@ -130,17 +130,17 @@ int TouchSwitch::trigger(){
     }
     else if (newValue <= offThreshold){
       waiting = true;
-      held_millis = 0;
+      held_millis = millis();
       return 0;
     }
     else{
-      held_millis = 0;
+      held_millis = millis();
       return 0;
     }
   }
   else{ // MOMENTARY behavior
     if (newValue >= onThreshold){
-      if (waiting && held_millis >= interval_millis){
+      if (waiting && (millis() - held_millis) >= interval_millis){
         if (!state){
           state = true;
           durationOfPreviousState = current_millis - previous_millis;
@@ -161,7 +161,7 @@ int TouchSwitch::trigger(){
       }
     }
     else if (newValue <= offThreshold){
-      if(waiting && held_millis >= interval_millis){
+      if(waiting && (millis() - held_millis) >= interval_millis){
         if (state){
           state = false;
           durationOfPreviousState = current_millis - previous_millis;
@@ -182,7 +182,7 @@ int TouchSwitch::trigger(){
       }
     }
     else{
-      held_millis = 0;
+      held_millis = millis();
       return 0;}
   }
 }
